@@ -165,19 +165,19 @@ export default function InvoiceDocument({ items }) {
           Save as PDF
         </button>
       </div>
-      <div
-        ref={invoiceRef}
-        className="container mx-auto p-6 bg-white shadow-md border"
-      >
+      <div className="flex justify-center items-center min-h-screen bg-gray-100">
+  <div
+    ref={invoiceRef}
+    className="w-[210mm] h-[297mm] mx-auto p-4 md:p-6 bg-white shadow-md border overflow-hidden text-[4px] md:text-xs" // Added text-xs here
+  >
         {/* Header */}
         <div className="flex justify-between items-center border-b pb-4">
-          <div className="flex items-center gap-4">
+          <div className="flex items-center md:gap-4">
             <div>
               <img
                 src={Image001}
                 alt="Grupo Nicte Mexico Logo"
-                width={200}
-                height={200}
+                className="w-20 h-20 md:w-48 md:h-48"
               />
             </div>
           </div>
@@ -187,20 +187,19 @@ export default function InvoiceDocument({ items }) {
               <img
                 src={Image002}
                 alt="Grupo Nicte Flower Logo"
-                width={200}
-                height={200}
+                className="w-20 h-20 md:w-48 md:h-48"
               />
             </div>
             <div>
               <p>SOCIEDAD DE RESPONSABILIDAD LIMITADA DE CAPITAL VARIBLE</p>
-              <div className="text-teal-700 text-xs mt-2">
+              <div className="text-teal-700 text-[4px] md:text-xs mt-2">
                 <p>RFC: GNF 210830M1A</p>
               </div>
               <div className="text-teal-700">
                 <p className="flex items-center gap-1">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4"
+                    className="h-2 md:h-4 w-2 md:w-4"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -227,7 +226,7 @@ export default function InvoiceDocument({ items }) {
                 <p className="flex items-center gap-1 mt-1">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4"
+                    className="h-2 md:h-4 w-2 md:w-4"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -253,7 +252,7 @@ export default function InvoiceDocument({ items }) {
                 <p className="flex items-center gap-1">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4"
+                    className="h-2 md:h-4 w-2 md:w-4"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -270,7 +269,7 @@ export default function InvoiceDocument({ items }) {
                 <p className="flex items-center gap-1 mt-1">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4"
+                    className="h-2 md:h-4 w-2 md:w-4"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -289,11 +288,11 @@ export default function InvoiceDocument({ items }) {
           </div>
 
           <div className="">
-            <img src={QrCode} alt="QR Code" width={200} height={200} />
+            <img src={QrCode} alt="QR Code" className="w-20 h-20 md:w-48 md:h-48" />
           </div>
         </div>
         {/* Date and Reference */}
-        <div className="flex justify-between mt-4 text-sm">
+        <div className="flex justify-between mt-4 text-[4px] md:text-sm">
           <div className="w-[70%]">{invoiceData.text_and_date}</div>
           <div className="w-[30%] text-right">
             Referenceno : {invoiceData.referenceNo}
@@ -314,9 +313,9 @@ export default function InvoiceDocument({ items }) {
             <h3 className="font-semibold">BilledTo:</h3>
             <p className="font-semibold">{billedTo.company}</p>
             <p className="font-semibold">{billedTo.address}</p>
-            <p className="text-sm flex">Tel: {billedTo.tel}</p>
-            <p className="text-sm flex">Email: {billedTo.email}</p>
-            <p className="text-sm flex">
+            <p className="text-[4px] md:text-sm flex">Tel: {billedTo.tel}</p>
+            <p className="text-[4px] md:text-sm flex">Email: {billedTo.email}</p>
+            <p className="text-[4px] md:text-sm flex">
               RepresentativePerson: {billedTo.representativePerson}
             </p>
           </div>
@@ -324,13 +323,13 @@ export default function InvoiceDocument({ items }) {
             <h3 className="font-semibold">Ship To:</h3>
             <p className="font-semibold">{shipTo.company}</p>
             {shipTo.address.map((line, i) => (
-              <p key={i} className="text-sm">
+              <p key={i} className="text-[4px] md:text-sm">
                 {line}
               </p>
             ))}
-            <p className="text-sm">{shipTo.miiCode}</p>
-            <p className="text-sm">Email: {shipTo.email}</p>
-            <p className="text-sm">Tel: {shipTo.tel}</p>
+            <p className="text-[4px] md:text-sm">{shipTo.miiCode}</p>
+            <p className="text-[4px] md:text-sm">Email: {shipTo.email}</p>
+            <p className="text-[4px] md:text-sm">Tel: {shipTo.tel}</p>
           </div>
         </div>
 
@@ -370,10 +369,10 @@ export default function InvoiceDocument({ items }) {
 
         {/* Bank Details */}
         <div className="mt-6 bg-teal-50 p-4 border border-teal-200 rounded-md">
-          <p className="text-sm font-semibold">
+          <p className="text-[4px] md:text-sm font-semibold">
             The bank account details of the company are as follows:
           </p>
-          <div className="grid grid-cols-2 gap-x-4 gap-y-1 mt-2 text-sm">
+          <div className="grid grid-cols-2 gap-x-4 gap-y-1 mt-2 text-[4px] md:text-sm">
             <p>Bank name</p>
             <p>{bankDetails.bankName}</p>
             <p>Company name</p>
@@ -408,12 +407,14 @@ export default function InvoiceDocument({ items }) {
         </div>
 
         {/* Stamp/Signature */}
-        <div className="flex justify-end mt-4">
+        <div className="flex justify-end mt4">
           <div className="w-32 h-32 relative">
-            <img src={Image003} alt="Official Stamp" width={128} height={128} />
+            <img src={Image003} alt="Official Stamp" className="w-20 h-20 md:w-32 md:h-32" />
           </div>
         </div>
       </div>
+      </div>
+
     </>
   );
 }
