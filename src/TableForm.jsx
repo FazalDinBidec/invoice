@@ -3,7 +3,7 @@ import InvoiceDocument from "./InvoiceDocument";
 
 const TableForm = () => {
   const [items, setItems] = useState([
-    { description: "", quantity: "", price: "" },
+    { description: "", quantity: "", price: "", note: "" },
   ]);
 
   const handleChange = (index, event) => {
@@ -13,7 +13,7 @@ const TableForm = () => {
   };
 
   const addRow = () => {
-    setItems([...items, { description: "", quantity: "", price: "" }]);
+    setItems([...items, { description: "", quantity: "", price: "", note: ""}]);
   };
 
   const removeRow = (index) => {
@@ -32,6 +32,7 @@ const TableForm = () => {
               <th className="border border-gray-300 p-1">Description</th>
               <th className="border border-gray-300 p-1">Quantity</th>
               <th className="border border-gray-300 p-1">Price</th>
+              <th className="border border-gray-300 p-1">Note</th>
               <th className="border border-gray-300 p-1">Actions</th>
             </tr>
           </thead>
@@ -65,6 +66,16 @@ const TableForm = () => {
                     step={0.01}
                     name="price"
                     value={item.price}
+                    onChange={(event) => handleChange(index, event)}
+                    className="w-full p-1 border border-gray-300"
+                    required
+                  />
+                </td>
+                <td className="border border-gray-300 p-1">
+                  <input
+                    type="text"                    
+                    name="note"
+                    value={item.note}
                     onChange={(event) => handleChange(index, event)}
                     className="w-full p-1 border border-gray-300"
                     required

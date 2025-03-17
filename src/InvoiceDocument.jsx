@@ -343,15 +343,17 @@ export default function InvoiceDocument({ items }) {
                 <th className="py-2 px-3 text-left">Description</th>
                 <th className="py-2 px-3 text-left">Quantity</th>
                 <th className="py-2 px-3 text-left">Price</th>
+                <th className="py-2 px-3 text-left">Note</th>
               </tr>
             </thead>
             <tbody>
               {items.map((item, index) => (
                 <tr key={index} className="border-b">
-                  <td className="py-2 px-3">{item.id}</td>
+                  <td className="py-2 px-3">{index+1}</td>
                   <td className="py-2 px-3">{item.description}</td>
                   <td className="py-2 px-3">{item.quantity}</td>
                   <td className="py-2 px-3">{item.price}</td>
+                  <td className="py-2 px-3">{item.note}</td>
                 </tr>
               ))}
 
@@ -360,6 +362,7 @@ export default function InvoiceDocument({ items }) {
                   Total
                 </th>
                 <th className="py-2 px-3 text-left">{total}</th>
+                <th className="py-2 px-3 text-left"></th>
               </tr>
             </tbody>
           </table>
